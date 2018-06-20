@@ -30,11 +30,11 @@ describe('MemoryGame constructor', function () {
     expect(typeof memoryGame.pairsClicked).toBe('number');
   });
 
-  it('MemoryGame should have a pairsClicked property', function () {
+  it('MemoryGame should have a pairsGuessed property', function () {
     expect(memoryGame.pairsGuessed).toBeDefined();
   });
 
-  it('pairsClicked property should be an array', function () {
+  it('pairsGuessed property should be an array', function () {
     expect(typeof memoryGame.pairsGuessed).toBe('number');
   });
 });
@@ -49,7 +49,7 @@ describe('shuffleCard method', function () {
     { name: 'green arrow',     img: 'green-arrow.jpg' },
     { name: 'green lantern',   img: 'green-lantern.jpg' },
     { name: 'ironman',         img: 'ironman.jpg' },
-    ]
+  ];
     memoryGame = new MemoryGame(cardsArray);
   });
 
@@ -62,8 +62,8 @@ describe('shuffleCard method', function () {
   });
 
   it('Should mixed the array and return a different one from the original', function () {
-    var firstArray = memoryGame.shuffleCard([1,2,3,4,5,6,7,8,9])
-    var secondArray = memoryGame.shuffleCard([1,2,3,4,5,6,7,8,9])
+    var firstArray = memoryGame.shuffleCard([1,2,3,4,5,6,7,8,9]);
+    var secondArray = memoryGame.shuffleCard([1,2,3,4,5,6,7,8,9]);
     expect(firstArray).not.toEqual(secondArray);
   });
 });
@@ -88,13 +88,13 @@ describe('checkIfPair method', function () {
 
   it('It should add 1 to pairsGuessed if they are the same card', function () {
     memoryGame.pairsGuessed = 0;
-    memoryGame.checkIfPair(2,2)
+    memoryGame.checkIfPair(2,2);
     expect(memoryGame.pairsGuessed).toBe(1);
   });
 
   it('It should not add anything to pairsGuessed if the not the same card', function () {
     memoryGame.pairsGuessed = 0;
-    memoryGame.checkIfPair(2,4)
+    memoryGame.checkIfPair(2,4);
     expect(memoryGame.pairsGuessed).toBe(0);
   });
 });
@@ -120,4 +120,3 @@ describe('finished method', function () {
   });
 
 });
-
